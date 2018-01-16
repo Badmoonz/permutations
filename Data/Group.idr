@@ -1,12 +1,9 @@
 module Data.Group
 
+import Control.Algebra
 %default total
 
 %access public export
-
-||| This extends 'Monoid' by defining an inverse for every element.
-interface (Monoid t) => Group t where
-  inverse : t -> t
 
 ||| Stream of elements starting at some given element.
 generate : (Group g) => g -> Stream g

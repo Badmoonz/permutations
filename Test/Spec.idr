@@ -5,10 +5,18 @@ import Control.Permutation
 import Control.Permutation.Arity
 import Data.Vect
 
+import Control.Algebra
+
 export
 specSuite : IO ()
 specSuite =
   spec $ do
+
+    describe "Monad Laws" $ do 
+        it "should Neutral (1/2)" $ do  
+          trivial <+> neutral `shouldBe` neutral <+> trivial
+        it "should Neutral (2/2)" $ do  
+          circ <+> neutral `shouldBe` neutral <+> circ
     describe "circulate" $ do
       it "should work (1/2)" $ do
         show circ `shouldBe` "(01234)"
